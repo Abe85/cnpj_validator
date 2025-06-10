@@ -3,65 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>CNPJ Validator App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app-container">
-    <div class="app-header">
-      <h1 class="app-title">CNPJ Validator</h1>
-      <p class="app-subtitle">Generate Check Digits, Validate CNPJ or Generate a new CNPJ</p>
-    </div>
-    <div class="input-section">
-      <label class="input-label" for="cnpjInput">Enter CNPJ Number</label>
-      <input type="text" id="cnpjInput" placeholder="XX.XXX.XXX/XXXX-XX or unformatted" autocomplete="off" spellcheck="false">
-      <div class="button-group">
-        <button class="btn btn-primary" onclick="handleGenerate()">🔢 Generate Check Digits</button>
-        <button class="btn btn-secondary" onclick="handleValidate()">✅ Validate CNPJ</button>
-      </div>
-    </div>
-    <div class="results-section">
-      <div class="result-card" id="validationResult">
-        <div class="result-title">Validation Results</div>
-        <div id="resultMessage"></div>
-        <div id="errorList" class="error-list"></div>
-      </div>
-      <div class="result-card">
-        <div class="result-title breakdown-title">CNPJ Breakdown</div>
-        <div class="breakdown-row breakdown-row-1">
-          <div class="breakdown-field"><div class="breakdown-label">Formatted</div><div class="breakdown-value" id="formattedCnpj">-</div></div>
-          <div class="breakdown-field"><div class="breakdown-label">Unformatted</div><div class="breakdown-value" id="unformattedCnpj">-</div></div>
-        </div>
-        <div class="breakdown-row breakdown-row-2">
-          <div class="breakdown-field"><div class="breakdown-label">Root Number</div><div class="breakdown-value" id="rootNumber">-</div></div>
-          <div class="breakdown-field"><div class="breakdown-label">Branch</div><div class="breakdown-value" id="branchNumber">-</div></div>
-          <div class="breakdown-field"><div class="breakdown-label">Check Digits</div><div class="breakdown-value" id="checkDigits">-</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="generator-section">
-      <div class="generator-card">
-        <div class="generator-title">🎲 Random CNPJ Generator</div>
-        <p class="generator-subtitle">Generate random CNPJ numbers for testing purposes</p>
-        <div class="generator-options">
-          <label class="radio-option"><input type="radio" name="cnpjType" value="numeric" checked><span class="radio-custom"></span><span class="radio-label">Numeric Only (0-9)</span></label>
-          <label class="radio-option"><input type="radio" name="cnpjType" value="alphanumeric"><span class="radio-custom"></span><span class="radio-label">Alphanumeric (0-9, A-Z)</span></label>
-        </div>
-        <button class="btn btn-generator" onclick="generateRandomCNPJ()">🎲 Generate Random CNPJ</button>
-      </div>
-    </div>
-    <div class="app-footer">
-      <p>CNPJ Validator App • Press Ctrl+G to generate • Ctrl+V to validate • Ctrl+Shift+R for random</p>
-    </div>
-  </div>
-  <div class="shortcuts">
-    <strong>Shortcuts:</strong><br>
-    Ctrl+G - Generate<br>
-    Ctrl+V - Validate<br>
-    Ctrl+R - Clear<br>
-    Ctrl+Shift+R - Random
-  </div>
+  <h1>Generate Check Digits, Validate CNPJ or Generate a new CNPJ</h1>
+  <p>Generate random CNPJ numbers for testing purposes</p>
+  <input type="text" id="cnpj-input" placeholder="Enter CNPJ">
+  <button id="validate-btn">Validate</button>
+  <button id="generate-btn">Generate</button>
+  <button id="random-btn">Random</button>
+  <div id="result"></div>
+  <footer>
+    <small>CNPJ Validator App • Press Ctrl+G to generate • Ctrl+V to validate • Ctrl+Shift+R for random</small>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
