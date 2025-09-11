@@ -1,28 +1,39 @@
 
         // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey || e.metaKey) {
-                switch(e.key.toLowerCase()) {
-                    case 'g':
-                        e.preventDefault();
-                        handleGenerate();
-                        break;
-                    case 'v':
-                        e.preventDefault();
-                        handleValidate();
-                        break;
-                    case 'r':
-                        if (e.shiftKey) {
-                            e.preventDefault();
-                            generateRandomCNPJ();
-                        } else {
-                            e.preventDefault();
-                            clearAll();
-                        }
-                        break;
+        // Check if focus is inside the input box
+        const activeElement = document.activeElement;
+        const isInputFocused = activeElement && activeElement.id === 'cnpjInput';
+
+        if (e.ctrlKey || e.metaKey) {
+        const key = e.key.toLowerCase();
+
+        // Allow Ctrl+C, Ctrl+X, Ctrl+A in input box (do not prevent default)
+        if (isInputFocused && (key === 'c' || key === 'x' || key === 'a')) {
+            return; // allow browser default clipboard and select all behaviors
+        }
+
+        switch(key) {
+            case 'g':
+                e.preventDefault();
+                handleGenerate();
+                break;
+            case 'v':
+                e.preventDefault();
+                handleValidate();
+                break;
+            case 'r':
+                if (e.shiftKey) {
+                    e.preventDefault();
+                    generateRandomCNPJ();
+                } else {
+                    e.preventDefault();
+                    clearAll();
                 }
-            }
-        });
+                break;
+        }
+    }
+});
 
         // Auto-focus input on load
         window.addEventListener('load', function() {
