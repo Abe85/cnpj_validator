@@ -1,5 +1,4 @@
 
-        // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
         // Check if focus is inside the input box
         const activeElement = document.activeElement;
@@ -34,6 +33,7 @@
         }
     }
 });
+
 
         // Auto-focus input on load
         window.addEventListener('load', function() {
