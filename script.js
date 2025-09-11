@@ -123,23 +123,13 @@
             return value.slice(0, 2) + '.' + value.slice(2, 5) + '.' + value.slice(5, 8) + '/' + value.slice(8, 12) + '-' + value.slice(12);
         }
         // Convert character to numeric value (0-9 = 0-9, A-Z = 10-35)        
-        function getCharValue(char) {            
-            if (char >= '0' && char <= '9') {                
-                return parseInt(char);            
-            } else if (char >= 'A' && char <= 'Z') {                
-                return char.charCodeAt(0) - 'A'.charCodeAt(0) + 10;            
-            }            
-            return 0;        
+        function getCharValue(char) {                           
+                return char.charCodeAt(0) - 48;                   
         }
         
         // Convert numeric value to character (0-9 = 0-9, 10-35 = A-Z)        
-        function getCharFromValue(value) {            
-            if (value >= 0 && value <= 9) {                
-                return value.toString();            
-            } else if (value >= 10 && value <= 35) {                
-                return String.fromCharCode('A'.charCodeAt(0) + value - 10);            
-            }            
-            return '0';        
+        function getCharFromValue(value) {                      
+            return value.toString();        
         }
         
         // Generate check digits for a 12-character CNPJ base        
